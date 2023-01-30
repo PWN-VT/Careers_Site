@@ -14,7 +14,7 @@ class User(UserMixin, db.Model):
     location = db.Column(db.String(1000))
     phone = db.Column(db.String(1000))
     website = db.Column(db.String(1000))
-    linkedin = db.Column(db.String(1000))
+    linkedln = db.Column(db.String(1000))
     twitter = db.Column(db.String(1000))
     public = db.Column(db.String(100))
     major = db.Column(db.String(1000))
