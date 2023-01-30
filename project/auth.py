@@ -73,11 +73,11 @@ def signup_post():
     return redirect(url_for('auth.login'))
 
 @auth.route('/signupStudent')
-def signup():
+def signupStudent():
     return render_template('signupStudent.html')
 
 @auth.route('/signupStudent', methods=['POST'])
-def signup_post():
+def signupStudent_post():
 
     email = request.form.get('email')
     name = request.form.get('name')
