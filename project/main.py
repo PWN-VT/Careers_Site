@@ -26,7 +26,7 @@ def explore():
 @login_required
 def explore_id(id):
     user = User.query.get(id)
-    if user.public == 'True':
+    if user.public == 'True' and user.student == 'False':
         return render_template('explore_id.html', name=user.name, email=user.email, major=user.major, jobTitle=user.jobTitle, company=user.company, location=user.location, phone=user.phone, website=user.website, linkedin=user.linkedin, twitter=user.twitter)
     else:
         return render_template('explore.html', name=current_user.name, email=current_user.email, major=current_user.major)

@@ -8,7 +8,7 @@
 </h1>
 <div class="columns is-multiline">
   {% for user in users %}
-  {% if user.major == major %}
+  {% if user.major == major and user.student == False %}
     <div class="column is-one-quarter">
         <div class="card">
         <div class="card-content">

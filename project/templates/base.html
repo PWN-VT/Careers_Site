@@ -33,7 +33,10 @@
                                 Login
                             </a>
                             <a href="{{ url_for('auth.signup') }}" class="navbar-item">
-                                Sign Up
+                                Alumni Sign Up
+                            </a>
+                            <a href="{{ url_for('auth.signupStudent') }}" class="navbar-item">
+                                Student Sign Up
                             </a>
                             {% endif %}
                             {% if current_user.is_authenticated %}

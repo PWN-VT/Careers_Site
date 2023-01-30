@@ -9,6 +9,7 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String(100))
     name = db.Column(db.String(1000))
     jobTitle = db.Column(db.String(1000))
+    bio = db.Column(db.String(1000))
     company = db.Column(db.String(1000))
     location = db.Column(db.String(1000))
     phone = db.Column(db.String(1000))
@@ -17,3 +18,4 @@ class User(UserMixin, db.Model):
     twitter = db.Column(db.String(1000))
     public = db.Column(db.String(100))
     major = db.Column(db.String(1000))
+    student = db.Column(db.String(100))
