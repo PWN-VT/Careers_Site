@@ -4,38 +4,36 @@
 <h1 class="title">
   User Explorer
 </h1>
-//display the passed user details
 <h2 class="subtitle">
-  {{ name }}
+  Name: {{ name }}
 </h2>
-<h2 class="subtitle">
-  {{ jobTitle }}
-</h2>
-<h2 class="subtitle">
-  {{ email }}
-</h2>
-<h2 class="subtitle">
-  {{ phone }}
-</h2>
-<h2 class="subtitle">
-  {{ major }}
-</h2>
-<h2 class="subtitle">
-  {{ company }}
-</h2>
-<h2 class="subtitle">
-    {{ location }}
-</h2>
-<h2 class="subtitle">
-    {{ phone }}
-</h2>
-<h2 class="subtitle">
-    {{ website }}
-</h2>
-<h2 class="subtitle">
-    {{ linkedin }}
-</h2>
-<h2 class="subtitle">
-    {{ twitter }}
-</h2>
+{% if student == '0' %}
+<h3 class="subtitle">
+  Job Title: {{ jobTitle }}
+</h3>
+<h3 class="subtitle">
+  Company: {{ company }}
+</h3>
+{% endif %}
+<h3 class="subtitle">
+  Email: {{ email }}
+</h3>
+<h3 class="subtitle">
+  Phone: {{ phone }}
+</h3>
+<h3 class="subtitle">
+  Major: {{ major }}
+</h3>
+<h3 class="subtitle">
+  Location: {{ location }}
+</h3>
+<h3 class="subtitle">
+  Website: {{ website }}
+</h3>
+<h3 class="subtitle">
+  Linkedln {{ linkedln }}
+</h3>
+<h3 class="subtitle">
+  Twitter: {{ twitter }}
+</h3>
 {% endblock %}
