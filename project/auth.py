@@ -47,6 +47,7 @@ def signup_post():
     website = request.form.get('website')
     linkedin = request.form.get('linkedin')
     twitter = request.form.get('twitter')
+    major = request.form.get('major')
     public = request.form.get('public')
 
     user = User.query.filter_by(email=email).first() # if this returns a user, then the email already exists in database
@@ -56,7 +57,7 @@ def signup_post():
         return redirect(url_for('auth.signup'))
 
     # create new user with the form data. Hash the password so plaintext version isn't saved.
-    new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'), jobTitle=jobTitle, company=company, location=location, phone=phone, website=website, linkedin=linkedin, twitter=twitter, public=public)
+    new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'), jobTitle=jobTitle, company=company, location=location, phone=phone, website=website, linkedin=linkedin, twitter=twitter, public=public, major=major)
 
     # add the new user to the database
     db.session.add(new_user)

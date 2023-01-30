@@ -13,3 +13,8 @@ def index():
 @login_required
 def profile():
     return render_template('profile.html', name=current_user.name)
+
+@main.route('/explore')
+@login_required
+def explore():
+    return render_template('explore.html', name=current_user.name, email=current_user.email, major=current_user.major)

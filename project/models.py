@@ -16,3 +16,4 @@ class User(UserMixin, db.Model):
     linkedin = db.Column(db.String(1000))
     twitter = db.Column(db.String(1000))
     public = db.Column(db.String(100))
+    major = db.Column(db.String(1000))
