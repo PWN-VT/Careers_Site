@@ -6,4 +6,39 @@
 <h1 class="title">
   Welcome, {{ name }}!
 </h1>
+<div class="columns is-multiline">
+  <div class="column is-one-quarter">
+    <div class="card">
+    <div class="card-content">
+      <div class="media">
+      <div class="media-content">
+        <p class="title is-4">{{ name }}</p>
+        {% if student == False %}
+        <p class="subtitle is-6">{{ jobTitle }}</p>
+        <p class="subtitle is-6">{{ company }}</p>
+        {% endif %}
+      </div>
+      </div>
+  
+      <div class="content">
+      <p>Email: </p>{{ email }}
+      <br>
+      <p>Phone: </p>{{ phone }}
+      <br>
+      <p>Major: </p>{{ major }}
+      <br>
+      <p>Bio: </p>{{ bio }}
+      <br>
+      <p>Linkedln: </p>{{ linkedin }}
+      <br>
+      <p>Website: </p>{{ website }}
+      <br>
+      <p>Location: </p>{{ location }}
+      <br>
+      <br>
+      <a href="/edit/{{ id }}">Edit</a>
+      </div>
+    </div>
+    </div>
+  </div>
 {% endblock %}

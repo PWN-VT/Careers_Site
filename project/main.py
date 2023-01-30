@@ -18,7 +18,7 @@ def profile():
 @main.route('/explore', methods=['GET'])
 @login_required
 def explore():
-    return render_template('explore.html', name=current_user.name, email=current_user.email, major=current_user.major)
+    return render_template('explore.html', name=current_user.name, email=current_user.email, major=current_user.major, users = User.query.all())
 
 
 #add path to view each user ID, if user is public annd current user is logged in
