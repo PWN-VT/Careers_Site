@@ -50,6 +50,10 @@ def signup_post():
     twitter = request.form.get('twitter')
     major = request.form.get('major')
     public = request.form.get('public')
+    if public == 'on':
+        public = True
+    else:
+        public = False
 
     student = False
     #check if bio is longer than 1000 chars
@@ -90,6 +94,10 @@ def studentSignup_post():
     twitter = request.form.get('twitter')
     major = request.form.get('major')
     public = request.form.get('public')
+    if public == 'on':
+        public = True
+    else:
+        public = False
 
     user = User.query.filter_by(email=email).first() # if this returns a user, then the email already exists in database
 
