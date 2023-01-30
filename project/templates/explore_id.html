@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<a href="/explore" class="button is-primary">Back</a>
 <h1 class="title">
   User Explorer
 </h1>
@@ -36,4 +37,28 @@
 <h3 class="subtitle">
   Twitter: {{ twitter }}
 </h3>
+<style>
+  .title {
+    text-align: center;
+  }
+  .subtitle {
+    text-align: center;
+  }
+  .button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+  }
+</style>
 {% endblock %}
