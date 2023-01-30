@@ -74,7 +74,7 @@ def signup_post():
 
 @auth.route('/signupStudent')
 def signup():
-    return render_template('signup.html')
+    return render_template('signupStudent.html')
 
 @auth.route('/signupStudent', methods=['POST'])
 def signup_post():
