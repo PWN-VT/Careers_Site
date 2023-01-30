@@ -13,11 +13,16 @@ def index():
 @main.route('/profile')
 @login_required
 def profile():
-    return render_template('profile.html', name=current_user.name)
+    if current_user.student == 'True':
+        return render_template('profile.html', name=current_user.name, email=current_user.email, major=current_user.major, location=current_user.location, phone=current_user.phone, website=current_user.website, linkedin=current_user.linkedin, twitter=current_user.twitter)
+    else:
+        return render_template('profile.html', name=current_user.name, email=current_user.email, major=current_user.major, jobTitle=current_user.jobTitle, company=current_user.company, location=current_user.location, phone=current_user.phone, website=current_user.website, linkedin=current_user.linkedin, twitter=current_user.twitter)
 
 @main.route('/explore', methods=['GET'])
 @login_required
 def explore():
+    for user in User.query.all():
+        print(user.major)
     return render_template('explore.html', name=current_user.name, email=current_user.email, major=current_user.major, users = User.query.all())
 
 
