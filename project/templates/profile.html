@@ -36,9 +36,22 @@
       <p>Location: {{ location }}</p>
       <br>
       <br>
-      <a href="/edit/{{ id }}">Edit</a>
+      <a href="/edit/{{ id }}" class="button">Edit(doesnt work rn)</a>
       </div>
     </div>
     </div>
   </div>
+  <style>
+    .button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+  </style>
 {% endblock %}
