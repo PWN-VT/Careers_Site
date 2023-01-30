@@ -39,6 +39,7 @@ def signup_post():
 
     email = request.form.get('email')
     name = request.form.get('name')
+    bio = request.form.get('bio')
     password = request.form.get('password')
     jobTitle = request.form.get('jobTitle')
     company = request.form.get('company')
@@ -50,6 +51,12 @@ def signup_post():
     major = request.form.get('major')
     public = request.form.get('public')
 
+    student = False
+    #check if bio is longer than 1000 chars
+    if len(bio) > 1000:
+        flash('Bio is too long')
+        return redirect(url_for('auth.signup'))
+
     user = User.query.filter_by(email=email).first() # if this returns a user, then the email already exists in database
 
     if user: # if a user is found, we want to redirect back to signup page so user can try again  
@@ -57,13 +64,54 @@ def signup_post():
         return redirect(url_for('auth.signup'))
 
     # create new user with the form data. Hash the password so plaintext version isn't saved.
-    new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'), jobTitle=jobTitle, company=company, location=location, phone=phone, website=website, linkedin=linkedin, twitter=twitter, public=public, major=major)
+    new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'), student=student, bio=bio, jobTitle=jobTitle, company=company, location=location, phone=phone, website=website, linkedin=linkedin, twitter=twitter, public=public, major=major)
 
     # add the new user to the database
     db.session.add(new_user)
     db.session.commit()
 
     return redirect(url_for('auth.login'))
+
+@auth.route('/signupStudent')
+def signup():
+    return render_template('signup.html')
+
+@auth.route('/signupStudent', methods=['POST'])
+def signup_post():
+
+    email = request.form.get('email')
+    name = request.form.get('name')
+    password = request.form.get('password')
+    bio = request.form.get('bio')
+    location = request.form.get('location')
+    phone = request.form.get('phone')
+    website = request.form.get('website')
+    linkedin = request.form.get('linkedin')
+    twitter = request.form.get('twitter')
+    major = request.form.get('major')
+    public = request.form.get('public')
+
+    user = User.query.filter_by(email=email).first() # if this returns a user, then the email already exists in database
+
+    student = True
+    #check if bio is longer than 1000 chars
+    if len(bio) > 1000:
+        flash('Bio is too long')
+        return redirect(url_for('auth.signup'))
+
+    if user: # if a user is found, we want to redirect back to signup page so user can try again  
+        flash('Email address already exists')
+        return redirect(url_for('auth.signup'))
+
+    # create new user with the form data. Hash the password so plaintext version isn't saved.
+    new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'), student=student, bio=bio, location=location, phone=phone, website=website, linkedin=linkedin, twitter=twitter, public=public, major=major)
+
+    # add the new user to the database
+    db.session.add(new_user)
+    db.session.commit()
+
+    return redirect(url_for('auth.login'))
+
 
 @auth.route('/logout')
 @login_required
