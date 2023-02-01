@@ -19,3 +19,9 @@ class User(UserMixin, db.Model):
     public = db.Column(db.String(100))
     major = db.Column(db.String(1000))
     student = db.Column(db.String(100))
+
+#create another table with majors and related jobs from a csv file
+class Major(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    major = db.Column(db.String(1000))
+    jobs = db.Column(db.String(10000))
