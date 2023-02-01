@@ -13,7 +13,7 @@ def index():
 #add favicon
 @main.route('/favicon.ico')
 def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'templates', 'favicon.ico'),
+    return send_from_directory(os.path.join(app.root_path, 'templates', 'favicon.ico')),
 
 @main.route('/profile')
 @login_required
