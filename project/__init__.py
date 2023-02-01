@@ -50,9 +50,9 @@ def create_app():
             # Add the major to the database
             db.session.add(major)
 
-    parseCSV('project/majors.csv')
-
     with app.app_context():
         db.create_all()
+
+    parseCSV('project/majors.csv')
 
     return app
