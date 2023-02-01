@@ -5,3 +5,4 @@ flask_mail
 Werkzeug
 itsdangerous
 Jinja2
+pandas
