@@ -4,9 +4,21 @@
 
 {% block content %}
 <h1 class="title">
-  Virginia Tech Careers
+  Virginia Tech Career Explorer
 </h1>
 <h2 class="subtitle">
   Learn more about careers available to you.
 </h2>
+<div>
+  {% if current_user.is_authenticated %}
+    <a href="/profile" class="button is-primary">Profile</a>
+    <a href="/explore" class="button is-primary">Explore</a>
+  {% endif %}
+  {% if not current_user.is_authenticated %}
+    <a href="/login" class="button is-primary">Login</a>
+    <a href="/signup" class="button is-primary">Alumni Sign Up</a>
+    <a href="/studentSignup" class="button is-primary">Student Sign Up</a>
+  {% endif %}
+</div>
+<p>Join and connect with other students and alumni within the same field as you!</p>
 {% endblock %}
