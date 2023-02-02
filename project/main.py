@@ -3,6 +3,7 @@ import os
 from flask import Blueprint, render_template
 from flask_login import login_required, current_user
 from .models import User
+import pandas as pd
 
 main = Blueprint('main', __name__)
 
@@ -26,7 +27,13 @@ def profile():
 @main.route('/explore', methods=['GET'])
 @login_required
 def explore():
-    return render_template('explore.html', id=current_user.id, name=current_user.name, email=current_user.email, major=current_user.major, users = User.query.all())
+    #add csv file to a table on the page under major table
+    def parseCSV(filePath):
+        df = pd.read_csv(filePath)
+        return df.to_html()
+
+    majorJobs = parseCSV('project/majors.csv')
+    return render_template('explore.html', majorJobs=majorJobs, id=current_user.id, name=current_user.name, email=current_user.email, major=current_user.major, users = User.query.all())
 
 
 #add path to view each user ID, if user is public annd current user is logged in
