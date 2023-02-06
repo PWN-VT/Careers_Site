@@ -1,6 +1,6 @@
 # main.py
 import os
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template,request, send_from_directory, flash, redirect, url_for
 from flask_login import login_required, current_user
 from .models import User
 import pandas as pd
@@ -24,13 +24,53 @@ def profile():
     else:
         return render_template('profile.html', name=current_user.name, email=current_user.email, major=current_user.major, jobTitle=current_user.jobTitle, company=current_user.company, location=current_user.location, phone=current_user.phone, website=current_user.website, bio=current_user.bio , linkedln=current_user.linkedln, twitter=current_user.twitter)
 
-@main.route('/edit')
+@main.route('/edit', methods=['GET'])
 @login_required
 def edit():
     if current_user.student == 'True':
         return render_template('edit.html', name=current_user.name, email=current_user.email, major=current_user.major, location=current_user.location, phone=current_user.phone, website=current_user.website, linkedln=current_user.linkedln, twitter=current_user.twitter, bio=current_user.bio, public=current_user.public)
     else:
         return render_template('edit.html', name=current_user.name, email=current_user.email, major=current_user.major, jobTitle=current_user.jobTitle, company=current_user.company, location=current_user.location, phone=current_user.phone, website=current_user.website, bio=current_user.bio , linkedln=current_user.linkedln, twitter=current_user.twitter, public=current_user.public)
+
+@main.route('/edit', methods=['POST'])
+@login_required
+def edit_post():
+    #get user info from form
+    name = request.form.get('name')
+    email = request.form.get('email')
+    major = request.form.get('major')
+    jobTitle = request.form.get('jobTitle')
+    location = request.form.get('location')
+    phone = request.form.get('phone')
+    website = request.form.get('website')
+    bio = request.form.get('bio')
+    linkedln = request.form.get('linkedln')
+    twitter = request.form.get('twitter')
+    public = request.form.get('public')
+    
+    if current_user.student == 'True':
+        company = ''
+    else:
+        company = request.form.get('company')
+
+    if len(bio) > 1000:
+        flash('Bio is too long')
+        return redirect(url_for('main.edit'))
+
+    #update user info
+    current_user.name = name
+    current_user.email = email
+    current_user.major = major
+    current_user.jobTitle = jobTitle
+    current_user.company = company
+    current_user.location = location
+    current_user.phone = phone
+    current_user.website = website
+    current_user.bio = bio
+    current_user.linkedln = linkedln
+    current_user.twitter = twitter
+    current_user.public = public
+    
 
 @main.route('/explore', methods=['GET'])
 @login_required

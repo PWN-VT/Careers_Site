@@ -14,19 +14,36 @@
             </div>
             </div>
             <div class="content">
-            <input type="text" name="email" value="{{ email }}">
+            <input type="text" name="email" value="{{ email }}"> Email
             <br>
-            <input type="text" name="phone" value="{{ phone }}">
+            <input type="text" name="phone" value="{{ phone }}"> Phone
             <br>
-            <input type="text" name="major" value="{{ major }}">
+            <input type="text" name="major" value="{{ major }}"> Major
+            <br>
+            <input type="text" name="bio" value="{{ bio }}"> Bio
+            <script>
+                var maxLength = 1000;
+                $('textarea').keyup(function() {
+                var length = $(this).val().length;
+                var length = maxLength-length;
+                $('#chars').text(length);
+                });
+            </script>
+            
+            <br>
+            {% if student == '0' %}
+            <input type="text" name="company" value="{{ company }}"> Company
+            <br>
+            {% endif %}
+            <input type="text" name="location" value="{{ location }}"> Location
             <br>
             <input type="checkbox" name="public" value="{{ public }}"> Make profile public
             <br>
-            <input type="text" name="linkedln" value="{{ linkedln }}">
+            <input type="text" name="linkedln" value="{{ linkedln }}"> LinkedIn
             <br>
-            <input type="text" name="github" value="{{ github }}">
+            <input type="text" name="github" value="{{ github }}"> GitHub
             <br>
-            <input type="text" name="website" value="{{ website }}">
+            <input type="text" name="website" value="{{ website }}"> Website
             <br>
             <br>
             <a href="/edit" class="button">Save Changes</a>
