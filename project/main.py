@@ -24,13 +24,21 @@ def profile():
     else:
         return render_template('profile.html', name=current_user.name, email=current_user.email, major=current_user.major, jobTitle=current_user.jobTitle, company=current_user.company, location=current_user.location, phone=current_user.phone, website=current_user.website, bio=current_user.bio , linkedln=current_user.linkedln, twitter=current_user.twitter)
 
+@main.route('/edit')
+@login_required
+def edit():
+    if current_user.student == 'True':
+        return render_template('edit.html', name=current_user.name, email=current_user.email, major=current_user.major, location=current_user.location, phone=current_user.phone, website=current_user.website, linkedln=current_user.linkedln, twitter=current_user.twitter, bio=current_user.bio, public=current_user.public)
+    else:
+        return render_template('edit.html', name=current_user.name, email=current_user.email, major=current_user.major, jobTitle=current_user.jobTitle, company=current_user.company, location=current_user.location, phone=current_user.phone, website=current_user.website, bio=current_user.bio , linkedln=current_user.linkedln, twitter=current_user.twitter, public=current_user.public)
+
 @main.route('/explore', methods=['GET'])
 @login_required
 def explore():
     #add csv file to a table on the page under major table
     def parseCSV(filePath):
         df = pd.read_csv(filePath)
-        return df.to_html()
+        return df #could also return df.to_html() for a table of everything
 
     majorJobs = parseCSV('project/majors.csv')
     return render_template('explore.html', majorJobs=majorJobs, id=current_user.id, name=current_user.name, email=current_user.email, major=current_user.major, users = User.query.all())

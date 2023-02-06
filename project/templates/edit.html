@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="title">
+  Welcome, {{ name }}! Edit your profile:
+</h1>
+<div class="columns is-multiline">
+  <div class="column is-one-quarter">
+      <div class="card">
+      <div class="card-content">
+          <div class="media">
+          <div class="media-content">
+                <p class="title is-4"><input type="text" name="name" value="{{ name }}"></p>
+                <p class="subtitle is-6"><input type="text" name="jobTitle" value="{{ jobTitle }}"></p>
+            </div>
+            </div>
+            <div class="content">
+            <input type="text" name="email" value="{{ email }}">
+            <br>
+            <input type="text" name="phone" value="{{ phone }}">
+            <br>
+            <input type="text" name="major" value="{{ major }}">
+            <br>
+            <input type="checkbox" name="public" value="{{ public }}"> Make profile public
+            <br>
+            <input type="text" name="linkedln" value="{{ linkedln }}">
+            <br>
+            <input type="text" name="github" value="{{ github }}">
+            <br>
+            <input type="text" name="website" value="{{ website }}">
+            <br>
+            <br>
+            <a href="/edit" class="button">Save Changes</a>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+<style>
+    .title {
+        text-align: center;
+    }
+    .subtitle {
+        text-align: center;
+    }
+    .content {
+        text-align: center;
+    }
+    .button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    .card {
+        background-color: #f2f2f2;
+    }
+
+</style>
+{% endblock %}
+
