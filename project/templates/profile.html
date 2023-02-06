@@ -19,22 +19,34 @@
         {% endif %}
       </div>
       </div>
-  
       <div class="content">
       <p>Email: {{ email }}</p>
-      <br>
+      <hr>
       <p>Phone: {{ phone }}</p>
-      <br>
+      <hr>
       <p>Major: {{ major }}</p>
-      <br>
-      <p>Bio: {{ bio }}</p>
-      <br>
-      <p>Linkedln: {{ linkedln }}</p>
-      <br>
-      <p>Website: {{ website }}</p>
-      <br>
+      <hr>
+      <hr>
+      <p>Public: {{ public }}</p>
+      <hr>
+      <p>Student: {{ student }}</p>
+      <hr>
+      {% if student == False %}
+        <p>Job Title: {{ jobTitle }}</p>
+        <hr>
+        <p>Company: {{ company }}</p>
+        <hr>
+      {% endif %}
+      {% if student == True %}
+        <p>Graduation Year: {{ gradYear }}</p>
+        <hr>
+      {% endif %}
+      <p>Linkedin: {{ linkedin }}</p>
+      <hr>
       <p>Location: {{ location }}</p>
-      <br>
+      <hr>
+      <p>Website: {{ website }}</p>
+      <hr>
       <br>
       <a href="/edit" class="button">Edit</a>
       </div>

@@ -94,6 +94,7 @@ def studentSignup_post():
     twitter = request.form.get('twitter')
     major = request.form.get('major')
     public = request.form.get('public')
+    gradYear = request.form.get('gradYear')
     if public == 'on':
         public = True
     else:

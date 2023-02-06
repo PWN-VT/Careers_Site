@@ -19,3 +19,4 @@ class User(UserMixin, db.Model):
     public = db.Column(db.String(100))
     major = db.Column(db.String(1000))
     student = db.Column(db.String(100))
+    gradYear = db.Column(db.String(1000))
