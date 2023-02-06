@@ -4,6 +4,7 @@ from flask import Blueprint, render_template,request, send_from_directory, flash
 from flask_login import login_required, current_user
 from .models import User
 import pandas as pd
+from . import app
 
 main = Blueprint('main', __name__)
 
