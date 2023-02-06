@@ -4,7 +4,6 @@ from flask import Blueprint, render_template,request, send_from_directory, flash
 from flask_login import login_required, current_user
 from .models import User
 import pandas as pd
-from . import app
 
 main = Blueprint('main', __name__)
 
@@ -15,7 +14,9 @@ def index():
 #add favicon
 @main.route('/favicon.ico')
 def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'templates', 'favicon.ico')),
+    #get the root path
+    root_path = os.path.dirname(os.path.abspath(__file__))
+    return send_from_directory(os.path.join(root_path, 'templates', 'favicon.ico')),
 
 @main.route('/profile')
 @login_required
