@@ -20,16 +20,20 @@
             <br>
             Major <input type="text" name="major" value="{{ major }}">
             <br>
-            Bio <input type="text" name="bio" value="{{ bio }}">
+            Bio <input type="text" name="bio" onkeyup="countChars(this);" value="{{ bio }}">
             <script>
-                var maxLength = 1000;
-                $('textarea').keyup(function() {
-                var length = $(this).val().length;
-                var length = maxLength-length;
-                $('#chars').text(length);
-                });
+                function countChars(obj){
+                    var maxLength = 1000;
+                    var strLength = obj.value.length;
+    
+                    if(strLength > maxLength){
+                        document.getElementById("charNum").innerHTML = '<span style="color: red;">'+strLength+' out of '+maxLength+' characters</span>';
+                    }else{
+                        document.getElementById("charNum").innerHTML = strLength+' out of '+maxLength+' characters';
+                    }
+                }
             </script>
-            <p>Characters left: <span id="chars">1000</span></p>
+            <p id="charNum">0 characters</p>
             <br>
             {% if student == '0' %}
             Company <input type="text" name="company" value="{{ company }}">
