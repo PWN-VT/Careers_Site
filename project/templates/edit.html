@@ -9,18 +9,18 @@
       <div class="card-content">
           <div class="media">
           <div class="media-content">
-                <p class="title is-4"><input type="text" name="name" value="{{ name }}"></p>
-                <p class="subtitle is-6"><input type="text" name="jobTitle" value="{{ jobTitle }}"></p>
+                <p class="title is-4">Name <input type="text" name="name" value="{{ name }}"></p>
+                <p class="subtitle is-6"> Job Title <input type="text" name="jobTitle" value="{{ jobTitle }}"></p>
             </div>
             </div>
             <div class="content">
-            <input type="text" name="email" value="{{ email }}"> Email
+            Email <input type="text" name="email" value="{{ email }}">
             <br>
-            <input type="text" name="phone" value="{{ phone }}"> Phone
+            Phone <input type="text" name="phone" value="{{ phone }}">
             <br>
-            <input type="text" name="major" value="{{ major }}"> Major
+            Major <input type="text" name="major" value="{{ major }}">
             <br>
-            <input type="text" name="bio" value="{{ bio }}"> Bio
+            Bio <input type="text" name="bio" value="{{ bio }}">
             <script>
                 var maxLength = 1000;
                 $('textarea').keyup(function() {
@@ -29,21 +29,22 @@
                 $('#chars').text(length);
                 });
             </script>
-            
+            //display the current number of characters
+            <p>Characters left: <span id="chars">1000</span></p>
             <br>
             {% if student == '0' %}
-            <input type="text" name="company" value="{{ company }}"> Company
+            Company <input type="text" name="company" value="{{ company }}">
             <br>
             {% endif %}
-            <input type="text" name="location" value="{{ location }}"> Location
+            Location <input type="text" name="location" value="{{ location }}">
             <br>
             <input type="checkbox" name="public" value="{{ public }}"> Make profile public
             <br>
-            <input type="text" name="linkedln" value="{{ linkedln }}"> LinkedIn
+            Linkedln <input type="text" name="linkedln" value="{{ linkedln }}">
             <br>
-            <input type="text" name="github" value="{{ github }}"> GitHub
+            GitHub <input type="text" name="github" value="{{ github }}">
             <br>
-            <input type="text" name="website" value="{{ website }}"> Website
+            Website <input type="text" name="website" value="{{ website }}">
             <br>
             <br>
             <a href="/edit" class="button">Save Changes</a>
