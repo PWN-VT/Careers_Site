@@ -12,11 +12,10 @@ def index():
     return render_template('index.html')
 
 #add favicon
-@main.route('/favicon.ico')
+@main.route('/static/favicon.ico')
 def favicon():
-    #get the root path
-    root_path = os.path.dirname(os.path.abspath(__file__))
-    return send_from_directory(os.path.join(root_path, 'templates', 'favicon.ico')),
+    return send_from_directory(os.path.join(main.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @main.route('/profile')
 @login_required
