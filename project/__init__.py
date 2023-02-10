@@ -3,6 +3,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from werkzeug.security import generate_password_hash
 
 # init SQLAlchemy so we can use it later in our models
 db = SQLAlchemy()
@@ -37,8 +38,8 @@ def create_app():
     with app.app_context():
         db.create_all()
         #add users to database for testing
-        user1 = User(name='test', email='test@test.com', major='test', jobTitle='', company='', location='test', phone='test', website='test', bio='test', linkedln='test', twitter='test', public='1', student='1', password='9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08')
-        user2 = User(name='test2', email='test2@test.com', major='test', jobTitle='test', company='test', location='test', phone='test', website='test', bio='test', linkedln='test', twitter='test', public='1', student='0', password='9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08')
+        user1 = User(name='test', email='test@test.com', major='test', jobTitle='', company='', location='test', phone='test', website='test', bio='test', linkedln='test', twitter='test', public='1', student='1', password=generate_password_hash('test', method='sha256'))
+        user2 = User(name='test2', email='test2@test.com', major='test', jobTitle='test', company='test', location='test', phone='test', website='test', bio='test', linkedln='test', twitter='test', public='1', student='0', password=generate_password_hash('test', method='sha256'))
         #add users to database
         db.session.add(user1)
         db.session.add(user2)
