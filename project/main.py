@@ -1,6 +1,6 @@
 # main.py
 import os
-from flask import Blueprint, render_template,request, send_from_directory, flash, redirect, url_for
+from flask import Blueprint, render_template,request, send_from_directory, flash, redirect, url_for, send_file
 from flask_login import login_required, current_user
 from .models import User
 import pandas as pd
@@ -21,9 +21,9 @@ def favicon():
 @login_required
 def profile():
     if current_user.student == '1':
-        return render_template('profile.html', name=current_user.name, email=current_user.email, major=current_user.major, location=current_user.location, phone=current_user.phone, website=current_user.website, linkedln=current_user.linkedln, twitter=current_user.twitter, bio=current_user.bio)
+        return render_template('profile.html', name=current_user.name, email=current_user.email, major=current_user.major, location=current_user.location, phone=current_user.phone, website=current_user.website, linkedln=current_user.linkedln, twitter=current_user.twitter, bio=current_user.bio, profilePic=current_user.profilePic)
     else:
-        return render_template('profile.html', name=current_user.name, email=current_user.email, major=current_user.major, jobTitle=current_user.jobTitle, company=current_user.company, location=current_user.location, phone=current_user.phone, website=current_user.website, bio=current_user.bio , linkedln=current_user.linkedln, twitter=current_user.twitter)
+        return render_template('profile.html', name=current_user.name, email=current_user.email, major=current_user.major, jobTitle=current_user.jobTitle, company=current_user.company, location=current_user.location, phone=current_user.phone, website=current_user.website, bio=current_user.bio , linkedln=current_user.linkedln, twitter=current_user.twitter, profilePic=current_user.profilePic)
 
 @main.route('/edit', methods=['GET'])
 @login_required
@@ -99,3 +99,14 @@ def explore_id(id):
         return render_template('explore_id.html', name=user.name, email=user.email, major=user.major, jobTitle=user.jobTitle, company=user.company, location=user.location, phone=user.phone, website=user.website, linkedln=user.linkedln, twitter=user.twitter)
     else:
         return render_template('explore.html', name=current_user.name, email=current_user.email, major=current_user.major)
+
+@main.route('/uploads//<string:id>', methods=['GET'])
+@login_required
+def uploads(id):
+    #get the file name from uploads/<file name>
+    file = id
+    #get the file path
+    path = os.path.join(main.root_path, 'uploads', file)
+    #return the file
+    return send_file(path, as_attachment=True)
+    
