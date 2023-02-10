@@ -38,7 +38,7 @@ def create_app():
         db.create_all()
     #add users to database for testing
     user1 = User(name='test', email='test@test.com', major='test', jobTitle='', company='', location='test', phone='test', website='test', bio='test', linkedln='test', twitter='test', public='1', student='1')
-    user2 = User(name='test2', email='test2@test.com', major='test', jobTitle='test', company='test', location='test', phone='test', website='test', bio='test', linkedln='test', twitter='test', public='1', student='0'))
+    user2 = User(name='test2', email='test2@test.com', major='test', jobTitle='test', company='test', location='test', phone='test', website='test', bio='test', linkedln='test', twitter='test', public='1', student='0')
     #add users to database
     db.session.add(user1)
     db.session.add(user2)
