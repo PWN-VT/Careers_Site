@@ -138,6 +138,7 @@ def studentSignup_post():
     if profilePic and allowed_file(profilePic.filename):
         filename = secure_filename(profilePic.filename)
         profilePic.save(os.path.join(UPLOAD_FOLDER, filename))
+        #error from this ^: FileNotFoundError: [Errno 2] No such file or directory: '/app/project/uploads/tmp.PNG'
     else:
         flash('File type not allowed')
         return redirect(url_for('auth.signup'))
