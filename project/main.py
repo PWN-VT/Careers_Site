@@ -12,7 +12,7 @@ def index():
     return render_template('index.html')
 
 #add favicon
-@main.route('/static/favicon.ico')
+@main.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(main.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
@@ -109,4 +109,3 @@ def uploads(id):
     path = os.path.join(main.root_path, 'uploads', file)
     #return the file
     return send_file(path, as_attachment=True)
-    
