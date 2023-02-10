@@ -11,7 +11,7 @@ import os
 auth = Blueprint('auth', __name__)
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 #get current path + uploads
-auth.config['UPLOAD_FOLDER'] = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'uploads')
+UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'uploads')
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -78,7 +78,7 @@ def signup_post():
         return redirect(url_for('auth.signup'))
     if profilePic and allowed_file(profilePic.filename):
         filename = secure_filename(profilePic.filename)
-        profilePic.save(os.path.join(auth.config['UPLOAD_FOLDER'], filename))
+        profilePic.save(os.path.join(UPLOAD_FOLDER, filename))
     else:
         flash('File type not allowed')
         return redirect(url_for('auth.signup'))
@@ -137,7 +137,7 @@ def studentSignup_post():
         return redirect(url_for('auth.signup'))
     if profilePic and allowed_file(profilePic.filename):
         filename = secure_filename(profilePic.filename)
-        profilePic.save(os.path.join(auth.config['UPLOAD_FOLDER'], filename))
+        profilePic.save(os.path.join(UPLOAD_FOLDER, filename))
     else:
         flash('File type not allowed')
         return redirect(url_for('auth.signup'))
