@@ -8,7 +8,7 @@
 </h1>
 <div class="columns is-multiline">
   {% for user in users %}
-    {% if user.id != id and user.public == '1' and user.student == '0' and user.major == major %}
+    {% if user.id != id and user.public == '1' and user.student == '0' and user.major == major and student == '1' %}
     <div class="column is-one-quarter">
         <div class="card">
         <div class="card-content">
@@ -34,12 +34,37 @@
     </div>
 </div>
     {% endif %}
+    {% if user.id != id and user.public == '1' and user.student == '1' and user.major == major and student == '0' %}
+    <div class="column is-one-quarter">
+        <div class="card">
+        <div class="card-content">
+            <div class="media">
+            <div class="media-content">
+                <p class="title is-4">{{ user.name }}</p>
+            </div>
+            </div>
+    
+            <div class="content">
+            {{ user.email }}
+            <br>
+            {{ user.phone }}
+            <br>
+            {{ user.major }}
+            <br>
+            <br>
+            <a href="/explore/{{ user.id }}" class="button">Connect</a>
+          </div>
+        </div>
+        </div>
+    </div>
+</div>
+        {% endif %}
   {% endfor %}
 <div>
   <h2>Check out these jobs that would allign with your major:</h2>
   <div class="columns is-multiline">
+    {% if student == '1' %}
     {% for job in majorJobs %}
-    {% if user.id != id and user.public == '1' and user.student == '0' and user.major == major %}
       <div class="column is-one-quarter">
           <div class="card">
           <div class="card-content">
@@ -54,8 +79,8 @@
           </div>
       </div>
 </div>
-{% endif %}
 {% endfor %}
+{% endif %}
 <style>
   .button {
     background-color: #4CAF50;
