@@ -2,10 +2,19 @@
 import os
 from flask import Blueprint, render_template,request, send_from_directory, flash, redirect, url_for, send_file
 from flask_login import login_required, current_user
+from werkzeug.utils import secure_filename
 from .models import User
 import pandas as pd
 
 main = Blueprint('main', __name__)
+
+ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
+#get current path + uploads
+UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'uploads')
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @main.route('/')
 def index():
@@ -48,6 +57,15 @@ def edit_post():
     linkedln = request.form.get('linkedln')
     twitter = request.form.get('twitter')
     public = request.form.get('public')
+    #see if the user uploaded a profile pic
+    if 'profilePic' in request.files:
+        profilePic = request.files['profilePic']
+        #if the user uploaded a profile pic, save it to the database
+        if profilePic and allowed_file(profilePic.filename):
+            filename = secure_filename(profilePic.filename)
+            profilePic.save(os.path.join(UPLOAD_FOLDER, filename))
+        else:
+            flash('File type not allowed')
     
     if current_user.student == 'True':
         company = ''

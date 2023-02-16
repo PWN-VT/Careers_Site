@@ -3,6 +3,13 @@
 <h1 class="title">
   Welcome, {{ name }}! Edit your profile:
 </h1>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="notification is-danger">
+            {{ messages[0] }}.
+        </div>
+    {% endif %}
+{% endwith %}
 <div class="columns is-multiline">
   <div class="column is-one-quarter">
       <div class="card">
@@ -14,6 +21,7 @@
             </div>
             </div>
             <div class="content">
+            <input class="input is-large" type="file" name="profilePic" placeholder="Profile Picture">
             Email <input type="text" name="email" value="{{ email }}">
             <br>
             Phone <input type="text" name="phone" value="{{ phone }}">
