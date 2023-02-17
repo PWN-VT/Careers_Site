@@ -28,7 +28,8 @@
             <br>
             Major <br> <br> <input type="text" name="major" value="{{ major }}">
             <div></div>
-            Bio <br> <input type="text" class="bio" name="bio" onkeyup="countChars(this);" value="{{ bio }}">
+            Bio <br>
+            <textarea rows = "10" cols = "10" name = "bio" onkeyup="countChars(this);">{{ bio }}</textarea>
             <script>
                 function countChars(obj){
                     var maxLength = 1000;
@@ -44,7 +45,7 @@
             <p id="charNum">0 characters</p>
             <br>
             {% if student == '0' %}
-            CompanyL  <input type="text" name="company" value="{{ company }}">
+            Company:  <input type="text" name="company" value="{{ company }}">
             <br>
             {% endif %}
             Location:  <input type="text" name="location" value="{{ location }}">
@@ -87,11 +88,6 @@
     }
     .card {
         background-color: #f2f2f2;
-    }
-    .bio {
-        width: 200px;
-        height: 250px;
-        border: 1px solid #999999;
     }
 
 </style>
