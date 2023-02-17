@@ -78,6 +78,12 @@ def signup_post():
         return redirect(url_for('auth.signup'))
     if profilePic and allowed_file(profilePic.filename):
         filename = secure_filename(profilePic.filename)
+        if os.path.isfile(os.path.join(UPLOAD_FOLDER, filename)):
+                #if there is, rename the uploaded file to a random hash
+                filename = os.path.splitext(filename)[0] + str(os.urandom(16).hex()) + os.path.splitext(filename)[1]
+                #update profile pic in database
+                user.profilePic = filename
+            #save the file
         profilePic.save(os.path.join(UPLOAD_FOLDER, filename))
     else:
         flash('File type not allowed')
@@ -137,6 +143,12 @@ def studentSignup_post():
         return redirect(url_for('auth.signup'))
     if profilePic and allowed_file(profilePic.filename):
         filename = secure_filename(profilePic.filename)
+        if os.path.isfile(os.path.join(UPLOAD_FOLDER, filename)):
+                #if there is, rename the uploaded file to a random hash
+                filename = os.path.splitext(filename)[0] + str(os.urandom(16).hex()) + os.path.splitext(filename)[1]
+                #update profile pic in database
+                user.profilePic = filename
+            #save the file
         profilePic.save(os.path.join(UPLOAD_FOLDER, filename))
         #error from this ^: FileNotFoundError: [Errno 2] No such file or directory: '/app/project/uploads/tmp.PNG'
     else:

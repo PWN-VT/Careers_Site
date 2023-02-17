@@ -63,6 +63,13 @@ def edit_post():
         #if the user uploaded a profile pic, save it to the database
         if profilePic and allowed_file(profilePic.filename):
             filename = secure_filename(profilePic.filename)
+            #check if there is already a file with the same name
+            if os.path.isfile(os.path.join(UPLOAD_FOLDER, filename)):
+                #if there is, rename the uploaded file to a random hash
+                filename = os.path.splitext(filename)[0] + str(os.urandom(16).hex()) + os.path.splitext(filename)[1]
+                #update profile pic in database
+                current_user.profilePic = filename
+            #save the file
             profilePic.save(os.path.join(UPLOAD_FOLDER, filename))
         else:
             flash('File type not allowed')
