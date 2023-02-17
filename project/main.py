@@ -70,7 +70,10 @@ def edit_post():
                 #update profile pic in database
                 current_user.profilePic = filename
             #save the file
-            profilePic.save(os.path.join(UPLOAD_FOLDER, filename))
+            try: 
+                profilePic.save(os.path.join(UPLOAD_FOLDER, filename))
+            except:
+                flash('Upload Error')
         else:
             flash('File type not allowed')
     
