@@ -15,20 +15,21 @@
       <div class="card">
       <div class="card-content">
           <div class="media">
-          <div class="media-content">
+          <div class="media-content"> <br>
             Name <input type="text" name="name" value="{{ name }}"></p>
             Job Title <input type="text" name="jobTitle" value="{{ jobTitle }}"></p>
             </div>
             </div>
             <div class="content">
-            <input class="input is-large" type="file" name="profilePic" placeholder="Profile Picture">
+            <input class="input is-small" type="file" name="profilePic" placeholder="Profile Picture">
+            <br>
             Email <input type="text" name="email" value="{{ email }}">
             <br>
             Phone <input type="text" name="phone" value="{{ phone }}">
             <br>
             Major <input type="text" name="major" value="{{ major }}">
             <br>
-            Bio <input type="text" name="bio" onkeyup="countChars(this);" value="{{ bio }}">
+            Bio <input type="text" class="bio" name="bio" onkeyup="countChars(this);" value="{{ bio }}">
             <script>
                 function countChars(obj){
                     var maxLength = 1000;
@@ -87,6 +88,11 @@
     }
     .card {
         background-color: #f2f2f2;
+    }
+    .bio {
+        width: 90px;
+        height: 390px;
+        border: 1px solid #999999;
     }
 
 </style>
