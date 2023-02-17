@@ -17,18 +17,18 @@
           <div class="media">
           <div class="media-content">
             Name <br> <input type="text" name="name" value="{{ name }}"></p>
-            Job Title <input type="text" name="jobTitle" value="{{ jobTitle }}"></p>
+            Job Title <br> <input type="text" name="jobTitle" value="{{ jobTitle }}"></p>
             </div>
             </div>
             <div class="content">
             <input class="input is-small" type="file" name="profilePic" placeholder="Profile Picture">
             Email <br> <input type="text" name="email" value="{{ email }}">
             <br>
-            Phone <input type="text" name="phone" value="{{ phone }}">
+            Phone <br> <input type="text" name="phone" value="{{ phone }}">
             <br>
-            Major <br> <input type="text" name="major" value="{{ major }}">
+            Major <br> <br> <input type="text" name="major" value="{{ major }}">
             <div></div>
-            Bio <input type="text" class="bio" name="bio" onkeyup="countChars(this);" value="{{ bio }}">
+            Bio <br> <input type="text" class="bio" name="bio" onkeyup="countChars(this);" value="{{ bio }}">
             <script>
                 function countChars(obj){
                     var maxLength = 1000;
@@ -44,18 +44,18 @@
             <p id="charNum">0 characters</p>
             <br>
             {% if student == '0' %}
-            Company <input type="text" name="company" value="{{ company }}">
+            CompanyL  <input type="text" name="company" value="{{ company }}">
             <br>
             {% endif %}
-            Location <input type="text" name="location" value="{{ location }}">
+            Location:  <input type="text" name="location" value="{{ location }}">
             <br>
             <input type="checkbox" name="public" value="{{ public }}"> Make profile public
             <br>
-            Linkedln <input type="text" name="linkedln" value="{{ linkedln }}">
+            Linkedln:  <input type="text" name="linkedln" value="{{ linkedln }}">
             <br>
-            GitHub <input type="text" name="github" value="{{ github }}">
+            GitHub:  <input type="text" name="github" value="{{ github }}">
             <br>
-            Website <input type="text" name="website" value="{{ website }}">
+            Website:  <input type="text" name="website" value="{{ website }}">
             <br>
             <br>
             <a href="/edit" class="button">Save Changes</a>
