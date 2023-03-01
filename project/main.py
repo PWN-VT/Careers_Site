@@ -20,7 +20,7 @@ def allowed_file(filename):
 def index():
     return render_template('index.html')
 
-#add favicon
+#add favicon (Isnt working for some reason)
 @main.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(main.root_path, 'static'),
