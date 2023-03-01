@@ -6,6 +6,9 @@ from werkzeug.utils import secure_filename
 from .models import User
 import pandas as pd
 
+
+#for helping find job titles by major: https://db.career.vt.edu/scripts/postgrad2006/report/EmployersJobTitlesLocationsList.asp?College=00&Major=ALL&Cohort=2016-2017&SortBy=M
+
 main = Blueprint('main', __name__)
 
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
