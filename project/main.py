@@ -102,6 +102,12 @@ def edit_post():
     current_user.linkedln = linkedln
     current_user.twitter = twitter
     current_user.public = public
+
+    if current_user.student == '1':
+        return render_template('edit.html', name=current_user.name, email=current_user.email, major=current_user.major, location=current_user.location, phone=current_user.phone, website=current_user.website, linkedln=current_user.linkedln, twitter=current_user.twitter, bio=current_user.bio, public=current_user.public)
+    else:
+        return render_template('edit.html', name=current_user.name, email=current_user.email, major=current_user.major, jobTitle=current_user.jobTitle, company=current_user.company, location=current_user.location, phone=current_user.phone, website=current_user.website, bio=current_user.bio , linkedln=current_user.linkedln, twitter=current_user.twitter, public=current_user.public)
+
     
 
 @main.route('/explore', methods=['GET'])
