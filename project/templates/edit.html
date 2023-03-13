@@ -16,6 +16,7 @@
       <div class="card-content">
           <div class="media">
           <div class="media-content">
+            <form method="POST" action="/signup" enctype="multipart/form-data">
             Name <br> <input type="text" name="name" value="{{ name }}"></p>
             Job Title <br> <input type="text" name="jobTitle" value="{{ jobTitle }}"></p>
             </div>
@@ -60,6 +61,7 @@
             <br>
             <br>
             <button class="button is-primary" type="submit">Submit</button>
+            </form>
             </div>
         </div>
         </div>

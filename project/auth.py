@@ -133,12 +133,12 @@ def studentSignup_post():
     #check if bio is longer than 1000 chars
     if len(bio) > 1000:
         flash('Bio is too long')
-        return redirect(url_for('auth.signup'))
+        return redirect(url_for('auth.studentSignup'))
 
     #check if profilePic is an image
     if profilePic.filename == '':
         flash('No selected file')
-        return redirect(url_for('auth.signup'))
+        return redirect(url_for('auth.studentSignup'))
     if profilePic and allowed_file(profilePic.filename):
         filename = secure_filename(profilePic.filename)
         if os.path.isfile(os.path.join(UPLOAD_FOLDER, filename)):
@@ -149,11 +149,11 @@ def studentSignup_post():
         #error from this ^: FileNotFoundError: [Errno 2] No such file or directory: '/app/project/uploads/tmp.PNG'
     else:
         flash('File type not allowed')
-        return redirect(url_for('auth.signup'))
+        return redirect(url_for('auth.studentSignup'))
 
     if user: # if a user is found, we want to redirect back to signup page so user can try again  
         flash('Email address already exists')
-        return redirect(url_for('auth.signup'))
+        return redirect(url_for('auth.studentSignup'))
 
     # create new user with the form data. Hash the password so plaintext version isn't saved.
     new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'), student=student, bio=bio, location=location, phone=phone, website=website, linkedln=linkedln, twitter=twitter, public=public, major=major, profilePic=filename)
