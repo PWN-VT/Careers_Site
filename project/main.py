@@ -4,6 +4,7 @@ from flask import Blueprint, render_template,request, send_from_directory, flash
 from flask_login import login_required, current_user
 from werkzeug.utils import secure_filename
 from .models import User
+from . import db
 import pandas as pd
 
 
@@ -102,6 +103,9 @@ def edit_post():
     current_user.linkedln = linkedln
     current_user.twitter = twitter
     current_user.public = public
+
+    db.session.commit()
+    flash('Your changes have been saved.')
 
     if current_user.student == '1':
         return render_template('edit.html', name=current_user.name, email=current_user.email, major=current_user.major, location=current_user.location, phone=current_user.phone, website=current_user.website, linkedln=current_user.linkedln, twitter=current_user.twitter, bio=current_user.bio, public=current_user.public)
