@@ -140,8 +140,8 @@ def explore():
         majorJobs2 = majorJobs.loc[majorJobs['major'] == current_user.major]
         #parse the jobs column into a list, it contains multiple jobs seperated by "|"
         majorJobs3 = majorJobs['jobs'].values[0].split('|')
-        return render_template('explore.html', majorJobs=majorJobs3, id=current_user.id, name=current_user.name, email=current_user.email, major=current_user.major, location=current_user.location, phone=current_user.phone, website=current_user.website, linkedln=current_user.linkedln, twitter=current_user.twitter, bio=current_user.bio, users = User.query.all(), student=current_user.student)
-    return render_template('explore.html', id=current_user.id, name=current_user.name, email=current_user.email, major=current_user.major, users = User.query.all(), student=current_user.student)
+        return render_template('explore.html', majorJobs=majorJobs3, id=current_user.id, name=current_user.name, email=current_user.email, major=current_user.major, location=current_user.location, phone=current_user.phone, website=current_user.website, linkedln=current_user.linkedln, twitter=current_user.twitter, bio=current_user.bio, users = User.query.all(), student=current_user.student, profilePic=current_user.profilePic)
+    return render_template('explore.html', id=current_user.id, name=current_user.name, email=current_user.email, major=current_user.major, users = User.query.all(), student=current_user.student, profilePic=current_user.profilePic)
 
 
 #add path to view each user ID, if user is public annd current user is logged in
