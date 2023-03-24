@@ -67,7 +67,6 @@ def edit_post():
         #if the user uploaded a profile pic, save it to the database
         if profilePic and allowed_file(profilePic.filename):
             filename = secure_filename(profilePic.filename)
-            flash('Reached1')
             #check if there is already a file with the same name
             if os.path.isfile(os.path.join(UPLOAD_FOLDER, filename)):
                 #if there is, rename the uploaded file to a random hash
