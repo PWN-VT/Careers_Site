@@ -12,7 +12,7 @@ import pandas as pd
 
 main = Blueprint('main', __name__)
 
-ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 #get current path + uploads
 UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'uploads')
 
@@ -109,7 +109,9 @@ def edit_post():
     current_user.twitter = twitter
     current_user.public = public
     #update the current users info in the database without adding a whole new user
-    db.session.merge(current_user)
+    updated_user = updated_user(id=current_user.id, name=current_user.name, email=current_user.email, major=current_user.major, jobTitle=current_user.jobTitle, company=current_user.company, location=current_user.location, phone=current_user.phone, website=current_user.website, bio=current_user.bio, linkedln=current_user.linkedln, twitter=current_user.twitter, public=current_user.public, profilePic=current_user.profilePic)
+    #update the user with the matching id in the database
+    db.session.merge(updated_user)
 
     #save changes to the sqllite database
     db.session.commit()
