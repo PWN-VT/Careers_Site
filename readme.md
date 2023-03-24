@@ -16,7 +16,8 @@ Can be run through docker-compose
 In-Progress
 
 ### TODO
-- Add images for profiles (needs fix)
+- Add images for profiles (needs fix) [x]
+- Fix display of images in explore (broken rn)
 - Add file upload to signup (add label that is it a profile)
 - Hash all sensative information (See FERPA)
 - Contact ITSO about security
