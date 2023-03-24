@@ -33,6 +33,8 @@ def favicon():
 @main.route('/profile')
 @login_required
 def profile():
+    #get updated current user
+    current_user = User.query.filter_by(email=current_user.email).first()
     if current_user.student == '1':
         return render_template('profile.html', name=current_user.name, email=current_user.email, major=current_user.major, location=current_user.location, phone=current_user.phone, website=current_user.website, linkedln=current_user.linkedln, twitter=current_user.twitter, bio=current_user.bio, profilePic=current_user.profilePic)
     else:
