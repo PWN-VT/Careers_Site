@@ -73,7 +73,6 @@ def edit_post():
                 filename = os.path.splitext(filename)[0] + str(os.urandom(16).hex()) + os.path.splitext(filename)[1]
                 #update profile pic in database
                 current_user.profilePic = filename
-                flash('Reached: ' + filename)
             #save the file
             try: 
                 profilePic.save(os.path.join(UPLOAD_FOLDER, filename))
@@ -110,12 +109,12 @@ def edit_post():
     #save changes to the sqllite database
     db.session.commit()
     
-    #flash('Your changes have been saved.')
+    flash('Your changes have been saved.')
 
     if current_user.student == '1':
-        return render_template('edit.html', name=current_user.name, email=current_user.email, major=current_user.major, location=current_user.location, phone=current_user.phone, website=current_user.website, linkedln=current_user.linkedln, twitter=current_user.twitter, bio=current_user.bio, public=current_user.public)
+        return render_template('edit.html', name=current_user.name, profilePic=current_user.profilePic , email=current_user.email, major=current_user.major, location=current_user.location, phone=current_user.phone, website=current_user.website, linkedln=current_user.linkedln, twitter=current_user.twitter, bio=current_user.bio, public=current_user.public)
     else:
-        return render_template('edit.html', name=current_user.name, email=current_user.email, major=current_user.major, jobTitle=current_user.jobTitle, company=current_user.company, location=current_user.location, phone=current_user.phone, website=current_user.website, bio=current_user.bio , linkedln=current_user.linkedln, twitter=current_user.twitter, public=current_user.public)
+        return render_template('edit.html', name=current_user.name, profilePic=current_user.profilePic , email=current_user.email, major=current_user.major, jobTitle=current_user.jobTitle, company=current_user.company, location=current_user.location, phone=current_user.phone, website=current_user.website, bio=current_user.bio , linkedln=current_user.linkedln, twitter=current_user.twitter, public=current_user.public)
 
     
 
