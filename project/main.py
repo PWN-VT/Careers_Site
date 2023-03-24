@@ -109,7 +109,7 @@ def edit_post():
     current_user.twitter = twitter
     current_user.public = public
     #update the current users info in the database without adding a whole new user
-    updated_user = updated_user(id=current_user.id, name=current_user.name, email=current_user.email, major=current_user.major, jobTitle=current_user.jobTitle, company=current_user.company, location=current_user.location, phone=current_user.phone, website=current_user.website, bio=current_user.bio, linkedln=current_user.linkedln, twitter=current_user.twitter, public=current_user.public, profilePic=current_user.profilePic)
+    updated_user = User(id=current_user.id, name=current_user.name, email=current_user.email, major=current_user.major, jobTitle=current_user.jobTitle, company=current_user.company, location=current_user.location, phone=current_user.phone, website=current_user.website, bio=current_user.bio, linkedln=current_user.linkedln, twitter=current_user.twitter, public=current_user.public, profilePic=current_user.profilePic)
     #update the user with the matching id in the database
     db.session.merge(updated_user)
 
