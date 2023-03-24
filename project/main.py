@@ -67,12 +67,14 @@ def edit_post():
         #if the user uploaded a profile pic, save it to the database
         if profilePic and allowed_file(profilePic.filename):
             filename = secure_filename(profilePic.filename)
+            flash('Reached1')
             #check if there is already a file with the same name
             if os.path.isfile(os.path.join(UPLOAD_FOLDER, filename)):
                 #if there is, rename the uploaded file to a random hash
                 filename = os.path.splitext(filename)[0] + str(os.urandom(16).hex()) + os.path.splitext(filename)[1]
                 #update profile pic in database
                 current_user.profilePic = filename
+                flash('Reached: ' + filename)
             #save the file
             try: 
                 profilePic.save(os.path.join(UPLOAD_FOLDER, filename))
@@ -103,11 +105,13 @@ def edit_post():
     current_user.linkedln = linkedln
     current_user.twitter = twitter
     current_user.public = public
+    #update the current users info in the database without adding a whole new user
+    db.session.merge(current_user)
 
     #save changes to the sqllite database
     db.session.commit()
     
-    flash('Your changes have been saved.')
+    #flash('Your changes have been saved.')
 
     if current_user.student == '1':
         return render_template('edit.html', name=current_user.name, email=current_user.email, major=current_user.major, location=current_user.location, phone=current_user.phone, website=current_user.website, linkedln=current_user.linkedln, twitter=current_user.twitter, bio=current_user.bio, public=current_user.public)
