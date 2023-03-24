@@ -42,9 +42,9 @@ def profile():
 @login_required
 def edit():
     if current_user.student == '1':
-        return render_template('edit.html', name=current_user.name, email=current_user.email, major=current_user.major, location=current_user.location, phone=current_user.phone, website=current_user.website, linkedln=current_user.linkedln, twitter=current_user.twitter, bio=current_user.bio, public=current_user.public)
+        return render_template('edit.html', name=current_user.name, profilePic=current_user.profilePic, email=current_user.email, major=current_user.major, location=current_user.location, phone=current_user.phone, website=current_user.website, linkedln=current_user.linkedln, twitter=current_user.twitter, bio=current_user.bio, public=current_user.public)
     else:
-        return render_template('edit.html', name=current_user.name, email=current_user.email, major=current_user.major, jobTitle=current_user.jobTitle, company=current_user.company, location=current_user.location, phone=current_user.phone, website=current_user.website, bio=current_user.bio , linkedln=current_user.linkedln, twitter=current_user.twitter, public=current_user.public)
+        return render_template('edit.html', name=current_user.name, profilePic=current_user.profilePic, email=current_user.email, major=current_user.major, jobTitle=current_user.jobTitle, company=current_user.company, location=current_user.location, phone=current_user.phone, website=current_user.website, bio=current_user.bio , linkedln=current_user.linkedln, twitter=current_user.twitter, public=current_user.public)
 
 @main.route('/edit', methods=['POST'])
 @login_required
@@ -61,25 +61,30 @@ def edit_post():
     linkedln = request.form.get('linkedln')
     twitter = request.form.get('twitter')
     public = request.form.get('public')
+    uploadPic = 1
     #see if the user uploaded a profile pic
     if 'profilePic' in request.files:
-        profilePic = request.files['profilePic']
-        #if the user uploaded a profile pic, save it to the database
-        if profilePic and allowed_file(profilePic.filename):
-            filename = secure_filename(profilePic.filename)
-            #check if there is already a file with the same name
-            if os.path.isfile(os.path.join(UPLOAD_FOLDER, filename)):
-                #if there is, rename the uploaded file to a random hash
-                filename = os.path.splitext(filename)[0] + str(os.urandom(16).hex()) + os.path.splitext(filename)[1]
-                #update profile pic in database
-                current_user.profilePic = filename
-            #save the file
-            try: 
-                profilePic.save(os.path.join(UPLOAD_FOLDER, filename))
-            except:
-                flash('Upload Error')
-        else:
-            flash('File type not allowed')
+        #check if empty
+        if request.files['profilePic'].filename == '':
+            uploadPic = 0
+        if uploadPic == 1:
+            profilePic = request.files['profilePic']
+            #if the user uploaded a profile pic, save it to the database
+            if profilePic and allowed_file(profilePic.filename):
+                filename = secure_filename(profilePic.filename)
+                #check if there is already a file with the same name
+                if os.path.isfile(os.path.join(UPLOAD_FOLDER, filename)):
+                    #if there is, rename the uploaded file to a random hash
+                    filename = os.path.splitext(filename)[0] + str(os.urandom(16).hex()) + os.path.splitext(filename)[1]
+                    #update profile pic in database
+                    current_user.profilePic = filename
+                #save the file
+                try: 
+                    profilePic.save(os.path.join(UPLOAD_FOLDER, filename))
+                except:
+                    flash('Upload Error')
+            else:
+                flash('File type not allowed')
     
     if current_user.student == 'True':
         company = ''
