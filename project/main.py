@@ -104,7 +104,9 @@ def edit_post():
     current_user.twitter = twitter
     current_user.public = public
 
+    #save changes to the sqllite database
     db.session.commit()
+    
     flash('Your changes have been saved.')
 
     if current_user.student == '1':
