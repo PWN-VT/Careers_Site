@@ -80,15 +80,11 @@ def edit_post():
                     filename = os.path.splitext(filename)[0] + str(os.urandom(16).hex()) + os.path.splitext(filename)[1]
                     #update profile pic in database
                     current_user.profilePic = filename
-                    #remove this
-                    test = current_user.profilePic
                 else:
                     #if not there, rename the uploaded file to a random hash
                     filename = os.path.splitext(filename)[0] + str(os.urandom(16).hex()) + os.path.splitext(filename)[1]
                     #update profile pic in database
                     current_user.profilePic = filename
-                    #remove this
-                    test = current_user.profilePic
                 #save the file
                 try: 
                     profilePic.save(os.path.join(UPLOAD_FOLDER, filename))
@@ -120,14 +116,15 @@ def edit_post():
     current_user.twitter = twitter
     current_user.public = public
     #update the current users info in the database without adding a whole new user
-    updated_user = User(id=current_user.id, name=current_user.name, email=current_user.email, major=current_user.major, jobTitle=current_user.jobTitle, company=current_user.company, location=current_user.location, phone=current_user.phone, website=current_user.website, bio=current_user.bio, linkedln=current_user.linkedln, twitter=current_user.twitter, public=current_user.public, profilePic=current_user.profilePic)
+    #updated_user = User(id=current_user.id, name=current_user.name, email=current_user.email, major=current_user.major, jobTitle=current_user.jobTitle, company=current_user.company, location=current_user.location, phone=current_user.phone, website=current_user.website, bio=current_user.bio, linkedln=current_user.linkedln, twitter=current_user.twitter, public=current_user.public, profilePic=current_user.profilePic)
     #update the user with the matching id in the database
-    db.session.merge(updated_user)
-
+    #db.session.merge(updated_user)
     #save changes to the sqllite database
     db.session.commit()
+    #grab the current user from the database
+    current_user = User.query.filter_by(id=current_user.id).first()
     #remove parts of this
-    flash('Your changes have been saved. ' + filename + "currentUserEarly: " + str(test))
+    flash('Your changes have been saved. Debug: ' + current_user.profilePic)
 
     if current_user.student == '1':
         return render_template('edit.html', name=current_user.name, profilePic=current_user.profilePic , email=current_user.email, major=current_user.major, location=current_user.location, phone=current_user.phone, website=current_user.website, linkedln=current_user.linkedln, twitter=current_user.twitter, bio=current_user.bio, public=current_user.public)
