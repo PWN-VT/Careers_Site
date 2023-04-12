@@ -124,12 +124,12 @@ def edit_post():
     #regrab the current user from the database
     current_user2 = User.query.filter_by(id=current_user.id).first()
     #remove parts of this
-    flash('Your changes have been saved. Debug: ' + current_user2.profilePic)
+    flash('Your changes have been saved.')
 
     if current_user.student == '1':
-        return render_template('edit.html', name=current_user.name, profilePic=current_user.profilePic , email=current_user.email, major=current_user.major, location=current_user.location, phone=current_user.phone, website=current_user.website, linkedln=current_user.linkedln, twitter=current_user.twitter, bio=current_user.bio, public=current_user.public)
+        return render_template('edit.html', name=current_user2.name, profilePic=current_user2.profilePic , email=current_user2.email, major=current_user2.major, location=current_user2.location, phone=current_user2.phone, website=current_user2.website, linkedln=current_user2.linkedln, twitter=current_user2.twitter, bio=current_user2.bio, public=current_user2.public)
     else:
-        return render_template('edit.html', name=current_user.name, profilePic=current_user.profilePic , email=current_user.email, major=current_user.major, jobTitle=current_user.jobTitle, company=current_user.company, location=current_user.location, phone=current_user.phone, website=current_user.website, bio=current_user.bio , linkedln=current_user.linkedln, twitter=current_user.twitter, public=current_user.public)
+        return render_template('edit.html', name=current_user2.name, profilePic=current_user2.profilePic , email=current_user2.email, major=current_user2.major, jobTitle=current_user2.jobTitle, company=current_user2.company, location=current_user2.location, phone=current_user2.phone, website=current_user2.website, bio=current_user2.bio , linkedln=current_user2.linkedln, twitter=current_user2.twitter, public=current_user2.public)
 
     
 
