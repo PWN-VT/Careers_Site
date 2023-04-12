@@ -118,7 +118,7 @@ def edit_post():
     #save changes to the sqllite database
     db.session.commit()
     
-    flash('Your changes have been saved. ' + filename)
+    flash('Your changes have been saved. ' + filename + "currentUser: " + current_user.profilePic)
 
     if current_user.student == '1':
         return render_template('edit.html', name=current_user.name, profilePic=current_user.profilePic , email=current_user.email, major=current_user.major, location=current_user.location, phone=current_user.phone, website=current_user.website, linkedln=current_user.linkedln, twitter=current_user.twitter, bio=current_user.bio, public=current_user.public)
@@ -148,7 +148,10 @@ def explore():
 @main.route('/explore/<int:id>', methods=['GET'])
 @login_required
 def explore_id(id):
-    user = User.query.get(id)
+    try:
+        user = User.query.get(id)
+    except:
+        return render_template('error.html')
     if user.public == '1' and user.student == '0':
         return render_template('explore_id.html', name=user.name, email=user.email, major=user.major, jobTitle=user.jobTitle, company=user.company, location=user.location, phone=user.phone, website=user.website, linkedln=user.linkedln, twitter=user.twitter)
     else:
