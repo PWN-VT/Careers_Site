@@ -121,10 +121,10 @@ def edit_post():
     #db.session.merge(updated_user)
     #save changes to the sqllite database
     db.session.commit()
-    #grab the current user from the database
-    current_user = User.query.filter_by(id=current_user.id).first()
+    #regrab the current user from the database
+    current_user2 = User.query.filter_by(id=current_user.id).first()
     #remove parts of this
-    flash('Your changes have been saved. Debug: ' + current_user.profilePic)
+    flash('Your changes have been saved. Debug: ' + current_user2.profilePic)
 
     if current_user.student == '1':
         return render_template('edit.html', name=current_user.name, profilePic=current_user.profilePic , email=current_user.email, major=current_user.major, location=current_user.location, phone=current_user.phone, website=current_user.website, linkedln=current_user.linkedln, twitter=current_user.twitter, bio=current_user.bio, public=current_user.public)
