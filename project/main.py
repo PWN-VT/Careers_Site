@@ -82,6 +82,13 @@ def edit_post():
                     current_user.profilePic = filename
                     #remove this
                     test = current_user.profilePic
+                else:
+                    #if not there, rename the uploaded file to a random hash
+                    filename = os.path.splitext(filename)[0] + str(os.urandom(16).hex()) + os.path.splitext(filename)[1]
+                    #update profile pic in database
+                    current_user.profilePic = filename
+                    #remove this
+                    test = current_user.profilePic
                 #save the file
                 try: 
                     profilePic.save(os.path.join(UPLOAD_FOLDER, filename))

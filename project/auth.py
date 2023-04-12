@@ -15,7 +15,7 @@ UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'upload
 
 def allowed_file(filename):
     return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+              filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @auth.route('/login')
 def login():
@@ -73,10 +73,7 @@ def signup_post():
         return redirect(url_for('auth.signup'))
 
     #check if profilePic is an image
-    if profilePic.filename == '':
-        flash('No selected file')
-        return redirect(url_for('auth.signup'))
-    if profilePic and allowed_file(profilePic.filename):
+    if profilePic != '' and allowed_file(profilePic.filename):
         filename = secure_filename(profilePic.filename)
         if os.path.isfile(os.path.join(UPLOAD_FOLDER, filename)):
                 #if there is, rename the uploaded file to a random hash
