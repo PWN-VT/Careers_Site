@@ -118,7 +118,7 @@ def edit_post():
     #save changes to the sqllite database
     db.session.commit()
     
-    flash('Your changes have been saved.')
+    flash('Your changes have been saved. ' + filename)
 
     if current_user.student == '1':
         return render_template('edit.html', name=current_user.name, profilePic=current_user.profilePic , email=current_user.email, major=current_user.major, location=current_user.location, phone=current_user.phone, website=current_user.website, linkedln=current_user.linkedln, twitter=current_user.twitter, bio=current_user.bio, public=current_user.public)
