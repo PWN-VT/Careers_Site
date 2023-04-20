@@ -15,7 +15,7 @@ UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'upload
 
 def allowed_file(filename):
     return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+              filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @auth.route('/login')
 def login():
@@ -73,16 +73,11 @@ def signup_post():
         return redirect(url_for('auth.signup'))
 
     #check if profilePic is an image
-    if profilePic.filename == '':
-        flash('No selected file')
-        return redirect(url_for('auth.signup'))
-    if profilePic and allowed_file(profilePic.filename):
+    if profilePic != '' and allowed_file(profilePic.filename):
         filename = secure_filename(profilePic.filename)
         if os.path.isfile(os.path.join(UPLOAD_FOLDER, filename)):
                 #if there is, rename the uploaded file to a random hash
                 filename = os.path.splitext(filename)[0] + str(os.urandom(16).hex()) + os.path.splitext(filename)[1]
-                #update profile pic in database
-                user.profilePic = filename
             #save the file
         profilePic.save(os.path.join(UPLOAD_FOLDER, filename))
     else:
@@ -135,29 +130,27 @@ def studentSignup_post():
     #check if bio is longer than 1000 chars
     if len(bio) > 1000:
         flash('Bio is too long')
-        return redirect(url_for('auth.signup'))
+        return redirect(url_for('auth.studentSignup'))
 
     #check if profilePic is an image
     if profilePic.filename == '':
         flash('No selected file')
-        return redirect(url_for('auth.signup'))
+        return redirect(url_for('auth.studentSignup'))
     if profilePic and allowed_file(profilePic.filename):
         filename = secure_filename(profilePic.filename)
         if os.path.isfile(os.path.join(UPLOAD_FOLDER, filename)):
                 #if there is, rename the uploaded file to a random hash
                 filename = os.path.splitext(filename)[0] + str(os.urandom(16).hex()) + os.path.splitext(filename)[1]
-                #update profile pic in database
-                user.profilePic = filename
             #save the file
         profilePic.save(os.path.join(UPLOAD_FOLDER, filename))
         #error from this ^: FileNotFoundError: [Errno 2] No such file or directory: '/app/project/uploads/tmp.PNG'
     else:
         flash('File type not allowed')
-        return redirect(url_for('auth.signup'))
+        return redirect(url_for('auth.studentSignup'))
 
     if user: # if a user is found, we want to redirect back to signup page so user can try again  
         flash('Email address already exists')
-        return redirect(url_for('auth.signup'))
+        return redirect(url_for('auth.studentSignup'))
 
     # create new user with the form data. Hash the password so plaintext version isn't saved.
     new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'), student=student, bio=bio, location=location, phone=phone, website=website, linkedln=linkedln, twitter=twitter, public=public, major=major, profilePic=filename)

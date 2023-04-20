@@ -13,7 +13,7 @@
             </div>
         {% endif %}
         {% endwith %}
-        <form method="POST" action="/signup">
+        <form method="POST" action="/signup" enctype="multipart/form-data">
             <div class="field">
                 <div class="control">
                     <input class="input is-large" type="email" name="email" placeholder="Email" autofocus="">
@@ -49,44 +49,10 @@
                     <div class="select is-large">
                         <select name="major">
                             <option value="none" selected disabled hidden>Major Related to Job</option>
-                            <option value="Computer Science">Computer Science</option>
-                            <option value="Cybersecurity">Cybersecurity</option>
-                            <option value="Computer Engineering">Computer Engineering</option>
-                            <option value="Electrical Engineering">Electrical Engineering</option>
-                            <option value="Mechanical Engineering">Mechanical Engineering</option>
-                            <option value="Chemical Engineering">Chemical Engineering</option>
-                            <option value="Civil Engineering">Civil Engineering</option>
-                            <option value="Biomedical Engineering">Biomedical Engineering</option>
-                            <option value="Chemistry">Chemistry</option>
-                            <option value="Physics">Physics</option>
-                            <option value="Mathematics">Mathematics</option>
-                            <option value="Biology">Biology</option>
-                            <option value="Business">Business</option>
-                            <option value="Accounting">Accounting</option>
-                            <option value="Finance">Finance</option>
+                            <option value="Cybersecurity-mgt">Cybersecurity MGT</option>
+                            <option value="BIT-DSS">BIT-DSS</option>
+                            <option value="BIT-OSM">BIT-OSM</option>
                             <option value="Marketing">Marketing</option>
-                            <option value="Management">Management</option>
-                            <option value="Entrepreneurship">Entrepreneurship</option>
-                            <option value="CMDA">CMDA</option>
-                            <option value="BIT">BIT</option>
-                            <option value="Economics">Economics</option>
-                            <option value="Psychology">Psychology</option>
-                            <option value="Sociology">Sociology</option>
-                            <option value="Political Science">Political Science</option>
-                            <option value="History">History</option>
-                            <option value="English">English</option>
-                            <option value="Philosophy">Philosophy</option>
-                            <option value="Art">Art</option>
-                            <option value="Music">Music</option>
-                            <option value="Theatre">Theatre</option>
-                            <option value="Film">Film</option>
-                            <option value="Education">Education</option>
-                            <option value="Nursing">Nursing</option>
-                            <option value="Medicine">Medicine</option>
-                            <option value="Dentistry">Dentistry</option>
-                            <option value="Pharmacy">Pharmacy</option>
-                            <option value="Law">Law</option>
-                            <option value="Other">Other</option>
                         </select>
                     </div>
                 </div>
