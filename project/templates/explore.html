@@ -70,10 +70,13 @@
           <div class="card-content">
               <div class="media">
               <div class="media-content">
-                <p class="title-455">{{ job }}</p>
+                  <p class="title is-4">{{ job.title }}</p>
+                  <p class="subtitle is-6">{{ job.company }}</p>
+              </div>
+              </div>
               <br>
               <br>
-              <a href="/explore/{{ job.id }}" class="button">Details(Down rn)</a>
+              <a href="{{ job.url }}" class="button">Details</a>
               </div>
           </div>
           </div>

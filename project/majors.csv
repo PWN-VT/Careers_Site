@@ -1,5 +1,41 @@
-major,jobs
-BIT-DSS,IT Consulting|Consultant|Systems Analyst|Systems Developer|Project Analyst|Project Manager|Solution Engineer|Data Analytics Consultant
-BIT-OSM,Consultant|Supply Chain Analyst|Shift Analyst|Shift Manager|Solution Engineer|Project Manager|Project Analyst
-Cybersecurity,Consultant|Cybersecurity Analyst|Cybersecurity Engineer|Cybersecurity Manager|Cybersecurity Architect|Cybersecurity Consultant|SOC Analyst|SOC Manager|Penetration Tester|Red Team Operator|Threat Intelligence Analyst|Threat Hunter|Malware Analyst|Incident Responder
-Marketing,Consultant|Marketing Analyst|Marketing Manager|Marketing Director|Marketing Consultant|Marketing Strategist|Marketing Automation Specialist|Salesperson|Sales Manager|Sales Director
+Major,Title,Company,Link
+BIT-DSS,Digital Technology Intern|GE Appliances|https://app.joinhandshake.com/stu/jobs/6903618?ref=preview-header-click&search_id=3e0c4d55-98ed-4359-adb5-804b4edcaaff
+BIT-DSS,Data Research Intern| U.S News & World Report|https://app.joinhandshake.com/stu/jobs/7567746?ref=preview-header-click&search_id=b0cb7d77-e33c-4c90-b479-09642633d34e
+BIT-DSS,Data Science Intern|Cowbell Cyber Inc|https://app.joinhandshake.com/stu/jobs/7398063?ref=preview-header-click&search_id=08233032-d3f1-4318-bb64-02503e8a63f8
+BIT-DSS,Information Technology Intern|Texas Instruments Inc|https://app.joinhandshake.com/stu/postings?page=4&per_page=25&sort_direction=desc&sort_column=default
+BIT-DSS,Data Governance/IT Intern|Frontier Airlines|https://app.joinhandshake.com/stu/jobs/6375934?ref=preview-header-click&search_id=cd65c7fa-627a-41b2-a954-127409653433
+BIT-DSS,Oracle NetSuite Consulting Intern|RSM US LLP|https://app.joinhandshake.com/stu/postings?page=6&per_page=25&sort_direction=desc&sort_column=default
+BIT-DSS,Education Statistics Data Science Research Assistant Intern|American Institutes for Research|https://app.joinhandshake.com/stu/jobs/7766563?ref=preview-header-click&search_id=6ab007cd-3e91-44e4-a2de-96c4bcfcfa6e
+BIT-DSS,Data Analyst Intern|ConvergeOne|https://app.joinhandshake.com/stu/jobs/7634862?ref=preview-header-click&search_id=08233032-d3f1-4318-bb64-02503e8a63f8
+BIT-DSS,Technology Consultant Intern|Spirent Communications|https://app.joinhandshake.com/stu/jobs/7572650?ref=preview-header-click&search_id=08233032-d3f1-4318-bb64-02503e8a63f8
+BIT-DSS,Marketing Data Analytics Internship|Avepoint Inc|https://app.joinhandshake.com/stu/jobs/7718297?ref=preview-header-click&search_id=08233032-d3f1-4318-bb64-02503e8a63f8
+Cybersecurity,Risk Advisory Consulting Internship|Baker Tilly|https://app.joinhandshake.com/stu/jobs/7757981?ref=preview-header-click&search_id=b0cb7d77-e33c-4c90-b479-09642633d34e
+Cybersecurity,Information Security Inter|Spirent Communications Inc|https://app.joinhandshake.com/stu/jobs/7513406?ref=preview-header-click&search_id=b0cb7d77-e33c-4c90-b479-09642633d34e
+Cybersecurity,Cyber Security Intern|The Venetian Resort Las Vegas|https://app.joinhandshake.com/stu/jobs/7733546?ref=preview-header-click&search_id=6ab007cd-3e91-44e4-a2de-96c4bcfcfa6e
+Cybersecurity,Security Operations & Architecture Inter|Lexmark International Inc|https://app.joinhandshake.com/stu/postings?page=4&per_page=25&sort_direction=desc&sort_column=default
+Cybersecurity,IT Security Intern|Federal Home Loan Bank of Chicago|https://app.joinhandshake.com/stu/jobs/6945684?ref=preview-header-click&search_id=3e0c4d55-98ed-4359-adb5-804b4edcaaff
+Cybersecurity,Cybersecurity Engineering Intern|Brightspot|https://app.joinhandshake.com/stu/jobs/7377614?ref=preview-header-click&search_id=3e0c4d55-98ed-4359-adb5-804b4edcaaff
+Cybersecurity,Information Security Intern|NVR Inc|https://app.joinhandshake.com/stu/jobs/7010053?ref=preview-header-click&search_id=3e0c4d55-98ed-4359-adb5-804b4edcaaff
+Cybersecurity,Global Security Internship|Honeywell|https://app.joinhandshake.com/stu/jobs/6868388?ref=preview-header-click&search_id=3e0c4d55-98ed-4359-adb5-804b4edcaaff
+Cybersecurity,Cyber Testing Consulting Intern|RSM US LLP|https://app.joinhandshake.com/stu/jobs/7002995?ref=preview-header-click&search_id=eb4e3d69-6ae5-44e1-9a44-e5353a1e7863
+Cybersecurity,Operational and Technology Risk Internship|Depository Trust & Clearing Corporation|https://app.joinhandshake.com/stu/jobs/7491871?ref=preview-header-click&search_id=eb4e3d69-6ae5-44e1-9a44-e5353a1e7863
+BIT-OSM ,Digital Supply Chain Intern|AES Corporation|https://app.joinhandshake.com/stu/jobs/7716707?ref=preview-header-click&search_id=08233032-d3f1-4318-bb64-02503e8a63f8
+BIT-OSM,Supply Chain Data Analyst Intern|QuidelOrtho|https://app.joinhandshake.com/stu/jobs/7664936?ref=preview-header-click&search_id=08233032-d3f1-4318-bb64-02503e8a63f8
+BIT-OSM,Supply Chain Intern|Ensign=Bickford Aerospace & Defense|https://app.joinhandshake.com/stu/jobs/7751789?ref=preview-header-click&search_id=5cf76c57-ce91-4ba1-b1dd-193fab15df41
+BIT-OSM,Supply Management Specialist|Computech Corporation|https://app.joinhandshake.com/stu/jobs/7767404?ref=preview-header-click&search_id=5cf76c57-ce91-4ba1-b1dd-193fab15df41
+BIT-OSM,Supply Chain Logistics Intern|Bimbo Backeries|https://app.joinhandshake.com/stu/jobs/6914835?ref=preview-header-click&search_id=5cf76c57-ce91-4ba1-b1dd-193fab15df41
+BIT-OSM,Supply Chain Logistics Cordinator|Four Seasons Produce Inc|https://app.joinhandshake.com/stu/jobs/7677845?ref=preview-header-click&search_id=5cf76c57-ce91-4ba1-b1dd-193fab15df41
+BIT-OSM,Supply Chain Buyer|The Virginia Commercial Space Flight Authority / Mid- Atlantic Regional Spaceport|https://app.joinhandshake.com/stu/jobs/7535052?ref=preview-header-click&search_id=5cf76c57-ce91-4ba1-b1dd-193fab15df41
+BIT-OSM,Supply Chain Analyst|C.H. Guenther & Son LLC|https://app.joinhandshake.com/stu/postings?page=1&per_page=25&sort_direction=desc&sort_column=default&query=supply
+BIT-OSM,Inventory Management Intern|Schreiber Foods|https://app.joinhandshake.com/stu/jobs/7661807?ref=preview-header-click&search_id=9c037d26-ecc3-4b8d-b3c1-b52efeffa38e
+BIT-OSM,Global Supply Chain Internship|https://app.joinhandshake.com/stu/jobs/6941083?ref=preview-header-click&search_id=9c037d26-ecc3-4b8d-b3c1-b52efeffa38e
+Marketing,Entertainment Marketing Internship|AvePoint Inc|https://app.joinhandshake.com/stu/jobs/7718297?ref=preview-header-click&search_id=d985bad5-6319-4769-b5d7-192a4e00aeaf
+Marketing,Power Marketing Intern|SB Energy|https://app.joinhandshake.com/stu/jobs/7750024?ref=preview-header-click&search_id=d985bad5-6319-4769-b5d7-192a4e00aeaf
+Marketing,Marketing Assistant|Warrior Marketing Agency|https://app.joinhandshake.com/stu/jobs/7559496?ref=preview-header-click&search_id=d985bad5-6319-4769-b5d7-192a4e00aeaf
+Marketing,Sales and Marketing Intern|Bell Techlogix|https://app.joinhandshake.com/stu/jobs/7765377?ref=preview-header-click&search_id=d985bad5-6319-4769-b5d7-192a4e00aeaf
+Marketing,Brand Marketing Internship|The Everset|https://app.joinhandshake.com/stu/jobs/7752697?ref=preview-header-click&search_id=d985bad5-6319-4769-b5d7-192a4e00aeaf
+Marketing,Marketing Communications Internship|Metropolitan Washington Council of Goverments|https://app.joinhandshake.com/stu/jobs/7757960?ref=preview-header-click&search_id=d985bad5-6319-4769-b5d7-192a4e00aeaf
+Marketing,Marketing Specialist Intern|Ra Labs|https://app.joinhandshake.com/stu/jobs/7740086?ref=preview-header-click&search_id=d985bad5-6319-4769-b5d7-192a4e00aeaf
+Marketing,Email Marketing Intern|George Washingtons Mount Vernon|https://app.joinhandshake.com/stu/jobs/7752277?ref=preview-header-click&search_id=d985bad5-6319-4769-b5d7-192a4e00aeaf
+Marketing,Digital Marketing Intern|Schoolfundr|https://app.joinhandshake.com/stu/jobs/7741231?ref=preview-header-click&search_id=6ab007cd-3e91-44e4-a2de-96c4bcfcfa6e
+Marketing,Marketing Intern|Southwest Sun Solar|https://app.joinhandshake.com/stu/jobs/7757579?ref=preview-header-click&search_id=6ab007cd-3e91-44e4-a2de-96c4bcfcfa6e
