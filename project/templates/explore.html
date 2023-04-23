@@ -32,7 +32,6 @@
         </div>
         </div>
     </div>
-</div>
     {% endif %}
     {% if user.id != id and user.public == '1' and user.student == '1' and user.major == major and student == '0' %}
     <div class="column is-one-quarter">
@@ -60,9 +59,9 @@
 </div>
         {% endif %}
   {% endfor %}
-<div>
+</div>
+<div class="columns is-multiline">
   <h2>Check out these jobs that would allign with your major:</h2>
-  <div class="columns is-multiline">
     {% if student == '1' %}
     {% for job in majorJobs %}
       <div class="column is-one-quarter">
@@ -80,8 +79,8 @@
           </div>
           </div>
       </div>
-</div>
 {% endfor %}
+</div>
 {% endif %}
 <style>
   .button {
