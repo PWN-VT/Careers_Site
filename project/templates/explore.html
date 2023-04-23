@@ -70,13 +70,12 @@
           <div class="card-content">
               <div class="media">
               <div class="media-content">
-                  <p class="title is-4">{{ job['Title'] }}</p>
-                  <p class="subtitle is-6">{{ job['Company'] }}</p>
-              </div>
+                  <p class="title is-4">{{ job[0] }}</p>
+                  <p class="subtitle is-6">{{ job[1] }}</p>
               </div>
               <br>
               <br>
-              <a href="{{ job['Link'] }}" class="button">Details</a>
+              <a href="{{ job[2] }}" class="button">Details</a>
               </div>
           </div>
           </div>
