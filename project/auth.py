@@ -47,7 +47,6 @@ def signup():
 def signup_post():
 
     #get uploaded profile pic
-    profilePic = request.files['profilePic']
     email = request.form.get('email')
     name = request.form.get('name')
     bio = request.form.get('bio')
@@ -72,18 +71,6 @@ def signup_post():
         flash('Bio is too long')
         return redirect(url_for('auth.signup'))
 
-    #check if profilePic is an image
-    if profilePic != '' and allowed_file(profilePic.filename):
-        filename = secure_filename(profilePic.filename)
-        if os.path.isfile(os.path.join(UPLOAD_FOLDER, filename)):
-                #if there is, rename the uploaded file to a random hash
-                filename = os.path.splitext(filename)[0] + str(os.urandom(16).hex()) + os.path.splitext(filename)[1]
-            #save the file
-        profilePic.save(os.path.join(UPLOAD_FOLDER, filename))
-    else:
-        flash('File type not allowed')
-        return redirect(url_for('auth.signup'))
-
     user = User.query.filter_by(email=email).first() # if this returns a user, then the email already exists in database
 
     if user: # if a user is found, we want to redirect back to signup page so user can try again  
@@ -106,7 +93,6 @@ def studentSignup():
 @auth.route('/studentSignup', methods=['POST'])
 def studentSignup_post():
 
-    profilePic = request.files['profilePic']
     email = request.form.get('email')
     name = request.form.get('name')
     password = request.form.get('password')
@@ -135,17 +121,6 @@ def studentSignup_post():
     #check if profilePic is an image
     if profilePic.filename == '':
         flash('No selected file')
-        return redirect(url_for('auth.studentSignup'))
-    if profilePic and allowed_file(profilePic.filename):
-        filename = secure_filename(profilePic.filename)
-        if os.path.isfile(os.path.join(UPLOAD_FOLDER, filename)):
-                #if there is, rename the uploaded file to a random hash
-                filename = os.path.splitext(filename)[0] + str(os.urandom(16).hex()) + os.path.splitext(filename)[1]
-            #save the file
-        profilePic.save(os.path.join(UPLOAD_FOLDER, filename))
-        #error from this ^: FileNotFoundError: [Errno 2] No such file or directory: '/app/project/uploads/tmp.PNG'
-    else:
-        flash('File type not allowed')
         return redirect(url_for('auth.studentSignup'))
 
     if user: # if a user is found, we want to redirect back to signup page so user can try again  
