@@ -142,10 +142,12 @@ def explore():
         return df #could also return df.to_html() for a table of everything
     if current_user.student == '1':
         majorJobs = parseCSV('project/majors.csv')
-        #pick out the row with the major in it
-        majorJobs2 = majorJobs.loc[majorJobs['major'] == current_user.major]
-        #parse the jobs column into a list, it contains multiple jobs seperated by "|"
-        majorJobs3 = majorJobs['jobs'].values[0].split('|')
+        #grab the rows with the same major as the current user
+        majorJobs2 = majorJobs.loc[majorJobs['Major'] == current_user.major]
+        #save variables of the job name, company, and link
+        majorJobs3 = majorJobs2[['Title', 'Company', 'Link']]
+        #convert to a list
+        majorJobs3 = majorJobs3.values.tolist()
         return render_template('explore.html', majorJobs=majorJobs3, id=current_user.id, name=current_user.name, email=current_user.email, major=current_user.major, location=current_user.location, phone=current_user.phone, website=current_user.website, linkedln=current_user.linkedln, twitter=current_user.twitter, bio=current_user.bio, users = User.query.all(), student=current_user.student, profilePic=current_user.profilePic)
     return render_template('explore.html', id=current_user.id, name=current_user.name, email=current_user.email, major=current_user.major, users = User.query.all(), student=current_user.student, profilePic=current_user.profilePic)
 

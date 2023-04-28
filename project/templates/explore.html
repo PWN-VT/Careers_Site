@@ -14,10 +14,6 @@
         <div class="card-content">
             <div class="media">
             <div class="media-content">
-              <h1>{{user.profilePic}}</h1>
-                {% if user.profilePic != 'None' %}
-                  <img src="{{ user.profilePic }}" alt="Profile Picture" width="100" height="100">
-                {% endif %}
                 <p class="title is-4">{{ user.name }}</p>
                 <p class="subtitle is-6">{{ user.jobTitle }}</p>
             </div>
@@ -36,7 +32,6 @@
         </div>
         </div>
     </div>
-</div>
     {% endif %}
     {% if user.id != id and user.public == '1' and user.student == '1' and user.major == major and student == '0' %}
     <div class="column is-one-quarter">
@@ -44,10 +39,6 @@
         <div class="card-content">
             <div class="media">
             <div class="media-content">
-              <h1>{{user.profilePic}}</h1>
-                {% if user.profilePic != 'None' %}
-                  <img src="{{ user.profilePic }}" alt="Profile Picture" width="100" height="100">
-                {% endif %}
                 <p class="title is-4">{{ user.name }}</p>
             </div>
             </div>
@@ -68,9 +59,9 @@
 </div>
         {% endif %}
   {% endfor %}
-<div>
-  <h2>Check out these jobs that would allign with your major:</h2>
-  <div class="columns is-multiline">
+</div>
+<h2>Check out these jobs that would allign with your major:</h2>
+<div class="columns is-multiline">
     {% if student == '1' %}
     {% for job in majorJobs %}
       <div class="column is-one-quarter">
@@ -78,16 +69,18 @@
           <div class="card-content">
               <div class="media">
               <div class="media-content">
-                <p class="title-455">{{ job }}</p>
+                  <p class="title is-4">{{ job[0] }}</p>
+                  <p class="subtitle is-6">{{ job[1] }}</p>
+              </div>
               <br>
               <br>
-              <a href="/explore/{{ job.id }}" class="button">Details(Down rn)</a>
+              <a href="{{ job[2] }}" class="button">Details</a>
               </div>
           </div>
           </div>
       </div>
-</div>
 {% endfor %}
+</div>
 {% endif %}
 <style>
   .button {
