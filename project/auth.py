@@ -78,7 +78,7 @@ def signup_post():
         return redirect(url_for('auth.signup'))
 
     # create new user with the form data. Hash the password so plaintext version isn't saved.
-    new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'), student=student, bio=bio, jobTitle=jobTitle, company=company, location=location, phone=phone, website=website, linkedln=linkedln, twitter=twitter, public=public, major=major, profilePic=filename)
+    new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'), student=student, bio=bio, jobTitle=jobTitle, company=company, location=location, phone=phone, website=website, linkedln=linkedln, twitter=twitter, public=public, major=major)
 
     # add the new user to the database
     db.session.add(new_user)
@@ -118,17 +118,12 @@ def studentSignup_post():
         flash('Bio is too long')
         return redirect(url_for('auth.studentSignup'))
 
-    #check if profilePic is an image
-    if profilePic.filename == '':
-        flash('No selected file')
-        return redirect(url_for('auth.studentSignup'))
-
     if user: # if a user is found, we want to redirect back to signup page so user can try again  
         flash('Email address already exists')
         return redirect(url_for('auth.studentSignup'))
 
     # create new user with the form data. Hash the password so plaintext version isn't saved.
-    new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'), student=student, bio=bio, location=location, phone=phone, website=website, linkedln=linkedln, twitter=twitter, public=public, major=major, profilePic=filename)
+    new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'), student=student, bio=bio, location=location, phone=phone, website=website, linkedln=linkedln, twitter=twitter, public=public, major=major)
 
     # add the new user to the database
     db.session.add(new_user)
