@@ -44,6 +44,7 @@ def create_app():
         #add users to database
         db.session.add(user1)
         db.session.add(user2)
+        db.session.add(user3)
         db.session.query(User).filter(User.email == 'anthony@prettyprinted.com').delete()
         db.session.query(User).filter(User.email == 'anthony@gmail.com').delete()
         db.session.commit()
