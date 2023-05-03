@@ -179,7 +179,8 @@ def uploads(id):
 @login_required
 def admin():
     if current_user.admin == '1':
-        usercount = User.query.count()
+        #get line count of select * from users
+        usercount = db.session.query(User).count()
         return render_template('admin.html', name = current_user.name,userCount = usercount)
     else:
         return render_template('error.html')
