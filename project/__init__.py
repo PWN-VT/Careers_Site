@@ -38,8 +38,8 @@ def create_app():
     with app.app_context():
         db.create_all()
         #add users to database for testing
-        user1 = User(name='Example User', email='test@test.com', major='Cybersecurity MGT', jobTitle='', company='', location='111-111-1111', phone='test', website='test.com', bio='testing', linkedln='test', twitter='test', public='1', student='1', password=generate_password_hash('test', method='sha256'))
-        user2 = User(name='Example User 2', email='test2@test.com', major='Cybersecurity MGT', jobTitle='Security Engineer', company='Example Company', location='Blacksburg, VA', phone='111-111-1111', website='test.com', bio='testing', linkedln='test', twitter='test', public='1', student='0', password=generate_password_hash('test', method='sha256'))
+        user1 = User(name='Example User', email='test@test.com', major='Cybersecurity-mgt', jobTitle='', company='', location='111-111-1111', phone='test', website='test.com', bio='testing', linkedln='test', twitter='test', public='1', student='1', password=generate_password_hash('test', method='sha256'))
+        user2 = User(name='Example User 2', email='test2@test.com', major='Cybersecurity-mgt', jobTitle='Security Engineer', company='Example Company', location='Blacksburg, VA', phone='111-111-1111', website='test.com', bio='testing', linkedln='test', twitter='test', public='1', student='0', password=generate_password_hash('test', method='sha256'))
         #add users to database
         db.session.add(user1)
         db.session.add(user2)
