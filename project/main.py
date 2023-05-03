@@ -179,8 +179,8 @@ def uploads(id):
 @login_required
 def admin():
     if current_user.admin == '1':
-        #get line count of select * from users
-        usercount = db.session.query(User).count()
+        #get the amount of line sin table user
+        usercount = User.query.count()
         return render_template('admin.html', name = current_user.name,userCount = usercount)
     else:
         return render_template('error.html')
