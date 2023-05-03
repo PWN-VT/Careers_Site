@@ -160,7 +160,7 @@ def explore_id(id):
         user = User.query.get(id)
     except:
         return render_template('error.html')
-    if user.public == '1' and user.student == '0':
+    if user.public == '1':
         return render_template('explore_id.html', name=user.name, email=user.email, major=user.major, jobTitle=user.jobTitle, company=user.company, location=user.location, phone=user.phone, website=user.website, linkedln=user.linkedln, twitter=user.twitter)
     else:
         return render_template('explore.html', name=current_user.name, email=current_user.email, major=current_user.major)
@@ -174,3 +174,13 @@ def uploads(id):
     path = os.path.join(main.root_path, 'uploads', file)
     #return the file
     return send_file(path, as_attachment=True)
+
+@main.route('/admin', methods=['GET'])
+@login_required
+def admin():
+    if current_user.admin == '1':
+        #get the amount of line sin table user
+        usercount = User.query.count()
+        return render_template('admin.html', name = current_user.name,userCount = usercount)
+    else:
+        return render_template('error.html')
