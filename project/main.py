@@ -174,3 +174,12 @@ def uploads(id):
     path = os.path.join(main.root_path, 'uploads', file)
     #return the file
     return send_file(path, as_attachment=True)
+
+@main.route('/admin', methods=['GET'])
+@login_required
+def admin():
+    if current_user.admin == '1':
+        usercount = User.query.count()
+        return render_template('admin.html', name = current_user.name,userCount = usercount)
+    else:
+        return render_template('error.html')

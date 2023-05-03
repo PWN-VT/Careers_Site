@@ -21,3 +21,4 @@ class User(UserMixin, db.Model):
     student = db.Column(db.String(100))
     gradYear = db.Column(db.String(1000))
     profilePic = db.Column(db.String(1000))
+    admin = db.Column(db.String(100))
